@@ -1,0 +1,33 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rico:   <https://www.ica.org/standards/RiC/RiC-O_v0-2#> .
+
+# This doesn't work yet, but it would be neat to have a base URI for all
+# concepts in Heurist and records in the given database
+@prefix concept:<https://heuristplus.sydney.edu.au/heurist/concept#> .
+@base <https://heuristplus.sydney.edu.au/heurist/heurist_rico_record_types/> .
+
+# With the above @base declaration, a record could be referred to using its recID.
+# <75> would resolve into https://heuristplus.sydney.edu.au/heurist/db/heurist_rico_record_types/75
+<75> a rico:Activity ;
+    # Example of a text field
+    rico:hasOrHadName [ rico:Name [
+        rico:textualValue "The storming of the Bastille" ;
+        ] 
+    ] ;
+    # Example of a dropdown field
+    # Using the proposed 'concept' prefix above, concept:1392-6897 would resolve into
+    # https://heuristplus.sydney.edu.au/heurist/concept#1392-6897
+    # Obviously, this assumes that only registered databases could export LOD
+    rico:hasActivityType concept:1392-6897 , [
+            rico:ActivityType [
+                rdfs:label "Political" ;
+                rico:hasOrHadName [
+                    rico:Name [
+                        rico:textualValue "Political" 
+                    ]
+                ]
+            ]
+    ] ;
+    rico:descriptiveNote "When the French toppled the Bastille in 1789" 
+.

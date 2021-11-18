@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rico="https://www.ica.org/standards/RiC/RiC-O_v0-2#">
+
+<!-- rico:Activity is the semantic URI for the record type-->
+<rico:Activity rdf:about="https://heuristplus.sydney.edu.au/heurist/?db=heurist_rico_record_types&amp;recID=75">
+    <!-- Example of simple text field. Should we provide a URI for each field of a record? Or render
+    the data literally, or do both, as below? -->
+    <!-- rico:hasOrHadName is the semantic URI for the field in the record (base field has no semantic URI at the moment) -->
+    <rico:hasOrHadName rdf:resource="???">
+        <rico:Name>
+            <rico:textualValue>The storming of the Bastille</rico:textualValue>
+        </rico:Name>
+    </rico:hasOrHadName>
+    <!-- Example of a dropdown field. Since we coin a concept ID for each item in a vocabulary, I suppose
+    it would be easy to provide a URI? -->
+    <!-- Then there is the question of how to include the label of the concept in the rdf output. Below, I
+    have used the rdfs:label attribute, which would work for all databases, but I have also included the rico
+    output, which I suppose would be too complicated/pointless to produce? -->
+    <!-- rico:hasActivityType is the URI of the base field (field in record has no associated URI) -->
+    <rico:hasActivityType rdf:resource="https://heuristplus.sydney.edu.au/heurist/concept/1392-6897">
+        <!-- rico:ActivityType is the URI for the vocabulary associated with the field -->
+        <rico:ActivityType>
+            <rdfs:label>Political</rdfs:label>
+            <rico:hasOrHadName>
+                <rico:Name>
+                    <rico:textualValue>Political</rico:textualValue>
+                </rico:Name>
+            </rico:hasOrHadName>
+        </rico:ActivityType>
+    </rico:hasActivityType>
+    <!-- rico:descriptiveNote is a data property, and should point to a literal -->
+    <rico:descriptiveNote>When the French toppled the Bastille in 1789</rico:descriptiveNote>
+</rico:Activity>
+
+</rdf:RDF>
