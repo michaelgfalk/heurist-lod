@@ -12,7 +12,7 @@
 <75> a rico:Activity ;
     # Example of a text field
     rico:hasOrHadName [ rico:Name [
-        rico:textualValue "The storming of the Bastille" ;
+        rico:textualValue "The storming of the Bastille" 
         ] 
     ] ;
     # Example of a dropdown field
